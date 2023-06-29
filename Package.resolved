@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "drops",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/omaralbeik/Drops",
+      "state" : {
+        "revision" : "f4eabe3e4e5da69e5205a69a5ddc0effd4a90519",
+        "version" : "1.6.1"
+      }
+    }
+  ],
+  "version" : 2
+}
