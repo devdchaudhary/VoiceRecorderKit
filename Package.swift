@@ -26,6 +26,8 @@ let package = Package(
             dependencies: ["Drops"]),
         .testTarget(
             name: "VoiceRecorderPackageTests",
-            dependencies: ["VoiceRecorderPackage"]),
+            dependencies: ["VoiceRecorderPackage"],
+            resources: [.copy("Assets.xcassets")]
+        ),
     ]
 )
