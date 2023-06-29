@@ -24,7 +24,7 @@ let package = Package(
         .target(
             name: "VoiceRecorderPackage",
             dependencies: ["Drops"],
-            resources: [.copy("Media")]
+            resources: [.process("Media.xcassets")]
         ),
         .testTarget(
             name: "VoiceRecorderPackageTests",
