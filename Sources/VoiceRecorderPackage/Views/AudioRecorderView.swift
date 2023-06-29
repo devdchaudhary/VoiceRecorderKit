@@ -21,8 +21,8 @@ struct RecordingBarView: View {
 
 public struct AudioRecorderView: View {
     
-    @StateObject private var audioRecorder: AudioRecorder = AudioRecorder.shared
-    @StateObject private var player: AudioPlayer = AudioPlayer.shared
+    @StateObject private var audioRecorder = AudioRecorder(numberOfSamples: 15)
+    @StateObject private var player = AudioPlayer(numberOfSamples: 15)
     
     @GestureState private var dragState: CGSize = .zero
     

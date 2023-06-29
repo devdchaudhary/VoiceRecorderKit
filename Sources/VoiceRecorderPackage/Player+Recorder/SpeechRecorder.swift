@@ -24,9 +24,7 @@ class AudioRecorder: NSObject, ObservableObject {
         self.soundSamples = [RecordingSampleModel](repeating: .init(sample: .zero), count: numberOfSamples)
         self.currentSample = .init(sample: .zero)
         self.numberOfSamples = numberOfSamples
-    }
-    
-    static let shared = AudioRecorder(numberOfSamples: 12)
+    }    
     
     func startRecording() {
                 

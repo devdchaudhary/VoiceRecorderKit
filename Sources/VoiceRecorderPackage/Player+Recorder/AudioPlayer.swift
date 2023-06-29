@@ -34,8 +34,6 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
         self.numberOfSamples = numberOfSamples
     }
     
-    static let shared = AudioPlayer(numberOfSamples: 15)
-    
     func playSystemSound(soundID: SystemSoundID) {
         AudioServicesPlaySystemSound(soundID)
     }
