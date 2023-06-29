@@ -24,6 +24,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     var fileDuration: TimeInterval = 0
     var currentTime: Int = 0
     
+    @Published var recordings: [Recording] = []
     @Published var soundSamples: [SampleModel] = []
         
     init(isPlaying: Bool = false, audioPlayer: AVAudioPlayer = AVAudioPlayer(), timer: Timer? = nil, numberOfSamples: Int) {

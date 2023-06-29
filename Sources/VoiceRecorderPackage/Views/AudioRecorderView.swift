@@ -36,8 +36,17 @@ public struct AudioRecorderView: View {
     @State private var isSendingAudio = false
     @State private var isLocked = false
     @State private var dragValue: CGSize?
-    
-    @State private var recordings: [Recording] = []
+        
+    public init(isRecording: Bool = false, timer: Timer? = nil, recordingTimer: Timer? = nil, currentTime: Int = 0, holdingTime: Int = 0, isSendingAudio: Bool = false, isLocked: Bool = false, dragValue: CGSize? = nil) {
+        self.isRecording = isRecording
+        self.timer = timer
+        self.recordingTimer = recordingTimer
+        self.currentTime = currentTime
+        self.holdingTime = holdingTime
+        self.isSendingAudio = isSendingAudio
+        self.isLocked = isLocked
+        self.dragValue = dragValue
+    }
     
     public var body: some View {
         
@@ -301,9 +310,10 @@ public struct AudioRecorderView: View {
         for index in offsets {
             recordingIndex = index
         }
-        let recording = recordings[recordingIndex]
+        
+        let recording = player.recordings[recordingIndex]
         audioRecorder.deleteRecording(url: recording.fileURL, onSuccess: {
-            recordings.remove(at: recordingIndex)
+            player.recordings.remove(at: recordingIndex)
             DropView.showSuccess(title: "Recording removed!")
         })
         
@@ -333,7 +343,7 @@ public struct AudioRecorderView: View {
             
             for audio in directoryContents {
                 let recording = Recording(fileURL: audio)
-                recordings.append(recording)
+                player.recordings.append(recording)
             }
         }
     }
@@ -371,7 +381,7 @@ public struct AudioRecorderView: View {
             
             let newRecording = Recording(fileURL: url)
             
-            recordings.append(newRecording)
+            player.recordings.append(newRecording)
         }
     }
 }

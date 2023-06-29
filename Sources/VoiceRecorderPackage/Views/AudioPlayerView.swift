@@ -27,14 +27,21 @@ struct BarView: View {
 
 public struct AudioPlayerView: View {
     
-    @StateObject var audioPlayer = AudioPlayer(numberOfSamples: 20)
+    @StateObject private var audioPlayer = AudioPlayer(numberOfSamples: 20)
     
-    @State var audioUrl: URL
-    @State var isPlaying = false
+    private var audioUrl: URL
+    @State private var isPlaying = false
     
     @State private var timer: Timer?
     
-    var fileName: String?
+    private var fileName: String?
+    
+    public init(audioUrl: URL, isPlaying: Bool = false, timer: Timer? = nil, fileName: String? = nil) {
+        self.audioUrl = audioUrl
+        self.isPlaying = isPlaying
+        self.timer = timer
+        self.fileName = fileName
+    }
     
     public var body: some View {
         
