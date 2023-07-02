@@ -19,7 +19,7 @@ struct RecordingBarView: View {
     }
 }
 
-public struct AudioRecorderView: View {
+public struct VoiceRecorderView: View {
     
     @StateObject private var audioRecorder = AudioRecorder(numberOfSamples: 15)
     @StateObject private var player = AudioPlayer(numberOfSamples: 15)

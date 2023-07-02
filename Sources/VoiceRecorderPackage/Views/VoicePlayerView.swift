@@ -25,7 +25,7 @@ struct BarView: View {
     
 }
 
-public struct AudioPlayerView: View {
+public struct VoicePlayerView: View {
     
     @StateObject private var audioPlayer = AudioPlayer(numberOfSamples: 20)
     
