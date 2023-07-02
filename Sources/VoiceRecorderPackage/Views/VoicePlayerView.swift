@@ -110,9 +110,3 @@ public struct VoicePlayerView: View {
     }
     
 }
-
-struct AudioPlayerView_Previews: PreviewProvider {
-    static var previews: some View {
-        AudioPlayerView(audioUrl: .init(fileReferenceLiteralResourceName: ""))
-    }
-}
