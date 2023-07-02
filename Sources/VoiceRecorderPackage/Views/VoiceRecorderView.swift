@@ -386,9 +386,3 @@ public struct VoiceRecorderView: View {
     }
 }
 
-struct AudioRecorderView_Previews: PreviewProvider {
-    static var previews: some View {
-        AudioRecorderView()
-    }
-}
-
