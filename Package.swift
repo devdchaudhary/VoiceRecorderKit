@@ -24,11 +24,12 @@ let package = Package(
         .target(
             name: "VoiceRecorderPackage",
             dependencies: ["Drops"],
-            resources: [.copy("Resources")]
+            resources: [.copy("Sources")]
         ),
         .testTarget(
             name: "VoiceRecorderPackageTests",
-            dependencies: ["VoiceRecorderPackage"]
+            dependencies: ["VoiceRecorderPackage"],
+            resources: [.copy("Sources")]
         ),
     ]
 )
