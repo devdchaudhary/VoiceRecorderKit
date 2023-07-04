@@ -24,12 +24,7 @@ let package = Package(
         .target(
             name: "VoiceRecorderPackage",
             dependencies: ["Drops"],
-            resources: [.process("Resources")]
-        ),
-        .testTarget(
-            name: "VoiceRecorderPackageTests",
-            dependencies: ["VoiceRecorderPackage"],
-            resources: [.process("Resources")]
-        ),
+            resources: [.process("Sources/VoiceRecorderPackage/Resources")]
+        )
     ]
 )
