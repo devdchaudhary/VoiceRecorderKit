@@ -10,7 +10,7 @@ import AVFoundation
 
 public final class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     
-    @Published var recordings: [Recording] = []
+    @Published public var recordings: [Recording] = []
     @Published var soundSamples: [SampleModel] = []
     @Published var isPlaying = false
     
