@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct SwiftUIView: View {
+    
+    @StateObject var audioPlayer = AudioPlayer()
+    
     var body: some View {
-        AudioRecorderView()
+        VStack {
+            ForEach(audioPlayer.recordings, id: \.uid) { recording in
+                VoicePlayerView(audioPlayer: audioPlayer, audioUrl: recording.fileURL)
+            }
+            Spacer()
+            VoiceRecorderView()
+        }
     }
 }
 

@@ -8,7 +8,7 @@
 import SwiftUI
 import AVFoundation
 
-class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
+public final class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     
     @Published var isPlaying = false
     
@@ -27,7 +27,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     @Published var recordings: [Recording] = []
     @Published var soundSamples: [SampleModel] = []
         
-    init(isPlaying: Bool = false, audioPlayer: AVAudioPlayer = AVAudioPlayer(), timer: Timer? = nil, numberOfSamples: Int) {
+    public init(isPlaying: Bool = false, audioPlayer: AVAudioPlayer = AVAudioPlayer(), timer: Timer? = nil, numberOfSamples: Int) {
         self.isPlaying = isPlaying
         self.audioPlayer = audioPlayer
         self.timer = timer
@@ -105,7 +105,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
         }
     }
     
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+    public func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         if flag {
             stopPlayback()
         }
