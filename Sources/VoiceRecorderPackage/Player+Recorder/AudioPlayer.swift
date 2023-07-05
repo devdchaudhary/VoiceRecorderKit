@@ -10,6 +10,8 @@ import AVFoundation
 
 public final class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     
+    @Published var recordings: [Recording] = []
+    @Published var soundSamples: [SampleModel] = []
     @Published var isPlaying = false
     
     var audioPlayer = AVAudioPlayer()
@@ -23,9 +25,6 @@ public final class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegat
     
     var fileDuration: TimeInterval = 0
     var currentTime: Int = 0
-    
-    @Published var recordings: [Recording] = []
-    @Published var soundSamples: [SampleModel] = []
         
     public init(isPlaying: Bool = false, audioPlayer: AVAudioPlayer = AVAudioPlayer(), timer: Timer? = nil, numberOfSamples: Int) {
         self.isPlaying = isPlaying

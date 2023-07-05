@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Recording: Hashable {
+public struct Recording: Hashable {
 
     let uid: UUID
     var fileURL: URL
     
-    init(fileURL: URL) {
+    public init(fileURL: URL) {
         uid = UUID()
         self.fileURL = fileURL
     }
