@@ -36,12 +36,15 @@ public struct VoicePlayerView: View {
     
     private var fileName: String?
     
-//    public init(audioUrl: URL, isPlaying: Bool = false, timer: Timer? = nil, fileName: String? = nil) {
-//        self.audioUrl = audioUrl
-//        self.isPlaying = isPlaying
-//        self.timer = timer
-//        self.fileName = fileName
-//    }
+    public init(audioPlayer: Binding<AudioPlayer>, audioUrl: URL, isPlaying: Bool = false,
+        timer: Timer? = nil, fileName: String? = nil)
+    {
+        self._audioPlayer = audioPlayer
+        self.audioUrl = audioUrl
+        self.isPlaying = isPlaying
+        self.timer = timer
+        self.fileName = fileName
+    }
     
     public var body: some View {
         
