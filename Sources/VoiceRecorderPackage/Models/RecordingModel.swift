@@ -19,12 +19,12 @@ public struct Recording: Hashable {
     
 }
 
-struct SampleModel: Hashable {
+public struct SampleModel: Hashable {
     
     let id: UUID
     let sample: Float
     
-    init(sample: Float) {
+    public init(sample: Float) {
         id = UUID()
         self.sample = sample
     }

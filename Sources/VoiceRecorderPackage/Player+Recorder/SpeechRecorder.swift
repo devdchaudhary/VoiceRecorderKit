@@ -8,10 +8,11 @@
 import SwiftUI
 import AVFoundation
 
-class AudioRecorder: NSObject, ObservableObject {
+public final class AudioRecorder: NSObject, ObservableObject {
         
+    @Published public var recordings: [Recording] = []
     @Published var recording = false
-    @Published public var soundSamples: [RecordingSampleModel]
+    @Published var soundSamples: [RecordingSampleModel]
     
     private var currentSample: RecordingSampleModel = .init(sample: .zero)
     private let numberOfSamples: Int
@@ -20,11 +21,19 @@ class AudioRecorder: NSObject, ObservableObject {
     
     var audioRecorder = AVAudioRecorder()
     
-    init(numberOfSamples: Int) {
+    let audioFormatID: AudioFormatID
+    let sampleRateKey: Float
+    let noOfchannels: Int
+    let audioQuality: AVAudioQuality
+    
+    public init(numberOfSamples: Int, audioFormatID: AudioFormatID, audioQuality: AVAudioQuality, noOfChannels: Int = 2, sampleRateKey: Float = 44100.0) {
         self.soundSamples = [RecordingSampleModel](repeating: .init(sample: .zero), count: numberOfSamples)
-        self.currentSample = .init(sample: .zero)
         self.numberOfSamples = numberOfSamples
-    }    
+        self.audioFormatID = audioFormatID
+        self.audioQuality = audioQuality
+        self.noOfchannels = noOfChannels
+        self.sampleRateKey = sampleRateKey
+    }
     
     func startRecording() {
                 
@@ -95,4 +104,18 @@ class AudioRecorder: NSObject, ObservableObject {
         timer?.invalidate()
     }
     
+    public func fetchRecordings() {
+        
+        let fileManager = FileManager.default
+        let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let directoryContents = try? fileManager.contentsOfDirectory(at: documentDirectory, includingPropertiesForKeys: nil)
+        
+        if let directoryContents {
+            
+            for audio in directoryContents {
+                let recording = Recording(fileURL: audio)
+                recordings.append(recording)
+            }
+        }
+    }
 }

@@ -7,24 +7,6 @@
 
 import SwiftUI
 
-struct BarView: View {
-    
-    var sample: SampleModel
-    
-    var body: some View {
-        
-        RoundedRectangle(cornerRadius: 20)
-            .fill(Color.primaryText)
-            .frame(width: 5, height: normalizeSoundLevel(level: sample.sample))
-    }
-    
-    private func normalizeSoundLevel(level: Float) -> CGFloat {
-        let level = max(0.2, CGFloat(level) + 40) / 2
-        return level
-    }
-    
-}
-
 public struct VoicePlayerView: View {
     
     @Binding var audioPlayer: AudioPlayer
@@ -78,7 +60,7 @@ public struct VoicePlayerView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack {
                         ForEach(audioPlayer.soundSamples, id: \.id) { level in
-                            BarView(sample: level)
+                            BarView(isRecording: false, sample: level)
                                 .id(level)
                         }
                     }

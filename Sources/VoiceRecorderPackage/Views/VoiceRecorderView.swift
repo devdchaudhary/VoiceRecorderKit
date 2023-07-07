@@ -6,23 +6,11 @@
 //
 
 import SwiftUI
-    
-struct RecordingBarView: View {
-    
-    let numberOfSamples = 12
-    var value: CGFloat
-    
-    var body: some View {
-        RoundedRectangle(cornerRadius: 20)
-            .fill(Color.primaryText)
-            .frame(width: 10, height: value)
-    }
-}
 
 public struct VoiceRecorderView: View {
     
-    @StateObject private var audioRecorder = AudioRecorder(numberOfSamples: 15)
-    @StateObject private var player = AudioPlayer(numberOfSamples: 15)
+    @Binding var audioRecorder: AudioRecorder
+    @Binding var player: AudioPlayer
     
     @GestureState private var dragState: CGSize = .zero
     
@@ -37,7 +25,7 @@ public struct VoiceRecorderView: View {
     @State private var isLocked = false
     @State private var dragValue: CGSize?
         
-    public init(isRecording: Bool = false, timer: Timer? = nil, recordingTimer: Timer? = nil, currentTime: Int = 0, holdingTime: Int = 0, isSendingAudio: Bool = false, isLocked: Bool = false, dragValue: CGSize? = nil) {
+    public init(isRecording: Bool = false, audioRecorder: Binding<AudioRecorder>, player: Binding<AudioPlayer>, timer: Timer? = nil, recordingTimer: Timer? = nil, currentTime: Int = 0, holdingTime: Int = 0, isSendingAudio: Bool = false, isLocked: Bool = false, dragValue: CGSize? = nil) {
         self.isRecording = isRecording
         self.timer = timer
         self.recordingTimer = recordingTimer
@@ -46,6 +34,8 @@ public struct VoiceRecorderView: View {
         self.isSendingAudio = isSendingAudio
         self.isLocked = isLocked
         self.dragValue = dragValue
+        self._audioRecorder = audioRecorder
+        self._player = player
     }
     
     public var body: some View {
@@ -275,7 +265,7 @@ public struct VoiceRecorderView: View {
                     
                     HStack(spacing: 4) {
                         ForEach(audioRecorder.soundSamples, id: \.id) { level in
-                            RecordingBarView(value: normalizeSoundLevel(level: Float(level.sample)))
+                            BarView(isRecording: true, value: normalizeSoundLevel(level: Float(level.sample)))
                         }
                     }
                     .padding(.leading)
@@ -298,27 +288,6 @@ public struct VoiceRecorderView: View {
         return CGFloat(level) // scaled to max at 300 (our height of our bar)
     }
     
-    
-    func delete(at offsets: IndexSet) {
-        
-        if player.isPlaying {
-            player.stopPlayback()
-        }
-        
-        var recordingIndex: Int = 0
-        
-        for index in offsets {
-            recordingIndex = index
-        }
-        
-        let recording = player.recordings[recordingIndex]
-        audioRecorder.deleteRecording(url: recording.fileURL, onSuccess: {
-            player.recordings.remove(at: recordingIndex)
-            DropView.showSuccess(title: "Recording removed!")
-        })
-        
-    }
-    
     private func startRecording() {
         isRecording = true
         timer?.invalidate()
@@ -331,21 +300,6 @@ public struct VoiceRecorderView: View {
                 }
             }
         })
-    }
-    
-    func fetchRecordings() {
-        
-        let fileManager = FileManager.default
-        let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let directoryContents = try? fileManager.contentsOfDirectory(at: documentDirectory, includingPropertiesForKeys: nil)
-        
-        if let directoryContents {
-            
-            for audio in directoryContents {
-                let recording = Recording(fileURL: audio)
-                player.recordings.append(recording)
-            }
-        }
     }
     
     func cancelRecording() {
@@ -381,7 +335,7 @@ public struct VoiceRecorderView: View {
             
             let newRecording = Recording(fileURL: url)
             
-            player.recordings.append(newRecording)
+            audioRecorder.recordings.append(newRecording)            
         }
     }
 }
