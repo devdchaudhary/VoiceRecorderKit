@@ -47,6 +47,7 @@ struct SwiftUIView: View {
         let recording = recorder.recordings[recordingIndex]
         recorder.deleteRecording(url: recording.fileURL, onSuccess: {
             recorder.recordings.remove(at: recordingIndex)
+            DropView.showSuccess(title: "Recording removed!")
         })
     }
 }
