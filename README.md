@@ -12,6 +12,12 @@ The Player and Recorder View themselves use the
 ```.averagePower()```
 modifier to get the power input from the voice channel and use those to visualize a waveform of the audio.
 
+Light Mode
+![Simulator Screen Recording - iPhone 14 Pro - 2023-07-07 at 12 16 54](https://github.com/devdchaudhary/VoiceRecorderPackage/assets/52855516/02ea2cb5-efa2-45b5-85bd-a9b05f47379b)
+
+Supports Dark Mode
+![Simulator Screen Recording - iPhone 14 Pro - 2023-06-16 at 07 08 05](https://github.com/devdchaudhary/VoiceRecorder/assets/52855516/82a9408a-cec8-4559-a366-6608276f890e)
+
 Requirements
 
 iOS 15,
@@ -31,8 +37,6 @@ set branch to "master"
 Check VoiceRecorderPackage
 
 Click Add to Project
-
-![Simulator Screen Recording - iPhone 14 Pro - 2023-06-16 at 07 08 05](https://github.com/devdchaudhary/VoiceRecorder/assets/52855516/82a9408a-cec8-4559-a366-6608276f890e)
 
 Usage
 
