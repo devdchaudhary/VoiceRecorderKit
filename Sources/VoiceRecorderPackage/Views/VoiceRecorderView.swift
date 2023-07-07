@@ -10,7 +10,6 @@ import SwiftUI
 public struct VoiceRecorderView: View {
     
     @ObservedObject var audioRecorder: AudioRecorder
-    @ObservedObject var player: AudioPlayer
     
     @GestureState private var dragState: CGSize = .zero
     
@@ -25,7 +24,7 @@ public struct VoiceRecorderView: View {
     @State private var isLocked = false
     @State private var dragValue: CGSize?
         
-    public init(isRecording: Bool = false, timer: Timer? = nil, recordingTimer: Timer? = nil, currentTime: Int = 0, holdingTime: Int = 0, isSendingAudio: Bool = false, isLocked: Bool = false, dragValue: CGSize? = nil, audioRecorder: AudioRecorder, player: AudioPlayer) {
+    public init(isRecording: Bool = false, timer: Timer? = nil, recordingTimer: Timer? = nil, currentTime: Int = 0, holdingTime: Int = 0, isSendingAudio: Bool = false, isLocked: Bool = false, dragValue: CGSize? = nil, audioRecorder: AudioRecorder) {
         self.isRecording = isRecording
         self.timer = timer
         self.recordingTimer = recordingTimer
@@ -35,7 +34,6 @@ public struct VoiceRecorderView: View {
         self.isLocked = isLocked
         self.dragValue = dragValue
         self.audioRecorder = audioRecorder
-        self.player = player
     }
     
     public var body: some View {
