@@ -69,6 +69,7 @@ public struct VoiceRecorderView: View {
                 Spacer()
                 
             }
+            .padding(.horizontal)
             
             Spacer().frame(height: 20)
             
