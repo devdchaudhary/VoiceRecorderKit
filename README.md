@@ -1,7 +1,8 @@
 # VoiceRecorderPackage
 
-A Package that uses UIScrollView to allow users to use a paging scrollView inside SwiftUI Views 
-via the UIViewRepresentable Protocol
+A Package that uses AVFoundation to allow users to use a record and playback audio recorder via the device's mic.
+
+It also uses a third party library known as "Drops" to give user feedback.
 
 Requirements
 
