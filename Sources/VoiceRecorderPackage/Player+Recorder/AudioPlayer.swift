@@ -94,7 +94,7 @@ public final class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegat
         currentTime = Int(fileDuration)
     }
     
-    func stopPlayback() {
+    public func stopPlayback() {
         audioPlayer.stop()
         stopMonitoring()
         

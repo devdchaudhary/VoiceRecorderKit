@@ -9,8 +9,8 @@ import Foundation
 
 public struct Recording: Hashable {
 
-    let uid: UUID
-    var fileURL: URL
+    public let uid: UUID
+    public var fileURL: URL
     
     public init(fileURL: URL) {
         uid = UUID()
