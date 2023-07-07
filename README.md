@@ -4,7 +4,7 @@ A Package that uses AVFoundation to allow users to use a record and playback aud
 
 It also uses a third party library known as "Drops" to give user feedback.
 
-The View uses a @GestureState wrapper to persist the pressing state of the user and to check the drag value of the user.
+The View uses a ```@GestureState` wrapper to persist the pressing state of the user and to check the drag value of the user.
 
 It resets the value to zero when the user has stopped pressing on the screen.
 
