@@ -75,7 +75,7 @@ public final class AudioRecorder: NSObject, ObservableObject {
         stopMonitoring()
     }
     
-    func deleteRecording(url: URL, onSuccess: (() -> Void)?) {
+    public func deleteRecording(url: URL, onSuccess: (() -> Void)?) {
         
         do {
             try FileManager.default.removeItem(at: url)
