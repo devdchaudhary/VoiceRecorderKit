@@ -9,8 +9,8 @@ import SwiftUI
 
 public struct VoiceRecorderView: View {
     
-    @ObservedObject var audioRecorder: AudioRecorder
-    @ObservedObject var player: AudioPlayer
+    @EnvironmentObject var audioRecorder: AudioRecorder
+    @EnvironmentObject var player: AudioPlayer
     
     @GestureState private var dragState: CGSize = .zero
     
