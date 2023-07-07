@@ -9,7 +9,7 @@ import SwiftUI
 
 public struct VoicePlayerView: View {
     
-    @ObservedObject var audioPlayer: AudioPlayer
+    @EnvironmentObject var audioPlayer: AudioPlayer
     
     private var audioUrl: URL
     @State private var isPlaying = false
@@ -18,10 +18,9 @@ public struct VoicePlayerView: View {
     
     private var fileName: String?
     
-    public init(audioPlayer: AudioPlayer, audioUrl: URL, isPlaying: Bool = false,
+    public init(audioUrl: URL, isPlaying: Bool = false,
         timer: Timer? = nil, fileName: String? = nil)
     {
-        self.audioPlayer = audioPlayer
         self.audioUrl = audioUrl
         self.isPlaying = isPlaying
         self.timer = timer
