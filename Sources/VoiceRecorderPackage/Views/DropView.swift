@@ -8,7 +8,7 @@
 import SwiftUI
 import Drops
 
-struct DropView {
+public struct DropView {
     
     static let generator = UINotificationFeedbackGenerator()
     

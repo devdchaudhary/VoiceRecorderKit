@@ -9,21 +9,27 @@ import SwiftUI
 
 struct SwiftUIView: View {
     
-    @StateObject var recorder = AudioRecorder()
-    @StateObject var audioPlayer = AudioPlayer()
-    
+    @StateObject var recorder = AudioRecorder(numberOfSamples: 15, audioFormatID: kAudioFormatAppleLossless, audioQuality: .max)
+        
     var body: some View {
         VStack {
+            
+            Text("My Recordings")
+                .foregroundColor(.primaryText)
+                .font(.system(size: 15)).bold()
+            
             List {
-                ForEach(audioPlayer.recordings, id: \.uid) { recording in
-                    VoicePlayerView(audioPlayer: audioPlayer, audioUrl: recording.fileURL)
+                
+                ForEach(recorder.recordings, id: \.uid) { recording in
+                    VoicePlayerView(audioUrl: recording.fileURL)
                 }
                 .onDelete { indexSet in
                     delete(at: indexSet)
                 }
             }
+            .listStyle(.inset)
             Spacer()
-            VoiceRecorderView(audioRecorder: recorder, player: audioPlayer)
+            VoiceRecorderView(audioRecorder: recorder)
         }
         .onAppear {
             recorder.fetchRecordings()
@@ -31,23 +37,17 @@ struct SwiftUIView: View {
     }
     
     func delete(at offsets: IndexSet) {
-        
-        if player.isPlaying {
-            player.stopPlayback()
-        }
-        
+
         var recordingIndex: Int = 0
-        
+
         for index in offsets {
             recordingIndex = index
         }
-        
-        let recording = player.recordings[recordingIndex]
-        audioRecorder.deleteRecording(url: recording.fileURL, onSuccess: {
-            player.recordings.remove(at: recordingIndex)
-            DropView.showSuccess(title: "Recording removed!")
+
+        let recording = recorder.recordings[recordingIndex]
+        recorder.deleteRecording(url: recording.fileURL, onSuccess: {
+            recorder.recordings.remove(at: recordingIndex)
         })
-        
     }
 }
 
