@@ -24,6 +24,8 @@ public final class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegat
     
     var fileDuration: TimeInterval = 0
     var currentTime: Int = 0
+    
+    static let shared = AudioPlayer(numberOfSamples: 15)
         
     public init(isPlaying: Bool = false, audioPlayer: AVAudioPlayer = AVAudioPlayer(), timer: Timer? = nil, numberOfSamples: Int) {
         self.isPlaying = isPlaying
