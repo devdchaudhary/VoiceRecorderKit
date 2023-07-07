@@ -1,8 +1,16 @@
 # VoiceRecorderPackage
 
-A Package that uses AVFoundation to allow users to use a record and playback audio recorder via the device's mic.
+A Package that uses AVFoundation to allow users to use a record and playback audio recorder via the device's mic and saves the recording audio files via FileManager.
 
 It also uses a third party library known as "Drops" to give user feedback.
+
+The View uses a @GestureState wrapper to persist the pressing state of the user and to check the drag value of the user.
+
+It resets the value to zero when the user has stopped pressing on the screen.
+
+The Player and Recorder View themselves use the 
+```.averagePower()```
+modifier to get the power input from the voice channel and use those to visualize a waveform of the audio.
 
 Requirements
 
@@ -24,7 +32,7 @@ Check VoiceRecorderPackage
 
 Click Add to Project
 
-https://github.com/devdchaudhary/VoiceRecorder/assets/52855516/82a9408a-cec8-4559-a366-6608276f890e
+![Simulator Screen Recording - iPhone 14 Pro - 2023-06-16 at 07 08 05](https://github.com/devdchaudhary/VoiceRecorder/assets/52855516/82a9408a-cec8-4559-a366-6608276f890e)
 
 Usage
 
