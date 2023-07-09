@@ -1,4 +1,4 @@
-# VoiceRecorderPackage
+# VoiceRecorderKit
 
 A Package that uses AVFoundation to allow users to use a record and playback audio recorder via the device's mic and saves the recording audio files via FileManager.
 
@@ -34,13 +34,13 @@ To integrate VoiceRecorderPackage into your Xcode project, specify it in Package
 
 set branch to "master"
 
-Check VoiceRecorderPackage
+Check VoiceRecorderKit
 
 Click Add to Project
 
 Usage
 
-Step 1 : Import ```VoiceRecorderPackage```
+Step 1 : Import ```VoiceRecorderKit```
 
 Step 2 : Declare the AudioRecorder Constructor as a ```@StateObject` and give input your desired settings for the voice output.
 
@@ -53,7 +53,7 @@ Below is an example demonstrating the use of the recorder and player.
 ```
 import SwiftUI
 import AudioUnit
-import VoiceRecorderPackage
+import VoiceRecorderKit
 
 struct ContentView: View {
     
