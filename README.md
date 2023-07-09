@@ -30,7 +30,7 @@ Swift Package Manager
 
 To integrate VoiceRecorderPackage into your Xcode project, specify it in Package Dependancies > Click the "+" button > Copy and paste the URL below:
 
-```https://github.com/devdchaudhary/VoiceRecorderPackage```
+```https://github.com/devdchaudhary/VoiceRecorderKit```
 
 set branch to "master"
 
