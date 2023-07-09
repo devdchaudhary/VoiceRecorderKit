@@ -1,4 +1,4 @@
-![Simulator Screen Recording - iPhone 14 Pro - 2023-07-07 at 12 16 54](https://github.com/devdchaudhary/VoiceRecorderKit/assets/52855516/62271f0a-a7f4-42c3-a15f-d0f26d1659f1)# VoiceRecorderKit
+# VoiceRecorderKit
 
 A Package that uses AVFoundation to allow users to use a record and playback audio recorder via the device's mic and saves the recording audio files via FileManager.
 
