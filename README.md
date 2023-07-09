@@ -1,4 +1,4 @@
-# VoiceRecorderKit
+![Simulator Screen Recording - iPhone 14 Pro - 2023-07-07 at 12 16 54](https://github.com/devdchaudhary/VoiceRecorderKit/assets/52855516/62271f0a-a7f4-42c3-a15f-d0f26d1659f1)# VoiceRecorderKit
 
 A Package that uses AVFoundation to allow users to use a record and playback audio recorder via the device's mic and saves the recording audio files via FileManager.
 
@@ -13,7 +13,7 @@ The Player and Recorder View themselves use the
 modifier to get the power input from the voice channel and use those to visualize a waveform of the audio.
 
 Light Mode
-![Simulator Screen Recording - iPhone 14 Pro - 2023-07-07 at 12 16 54](https://github.com/devdchaudhary/VoiceRecorderPackage/assets/52855516/02ea2cb5-efa2-45b5-85bd-a9b05f47379b)
+![Simulator Screen Recording - iPhone 14 Pro - 2023-07-07 at 12 16 54](https://github.com/devdchaudhary/VoiceRecorderKit/assets/52855516/cb821879-1d9d-4f3f-87ad-755e1f74258c)
 
 Supports Dark Mode
 ![Simulator Screen Recording - iPhone 14 Pro - 2023-06-16 at 07 08 05](https://github.com/devdchaudhary/VoiceRecorder/assets/52855516/82a9408a-cec8-4559-a366-6608276f890e)
