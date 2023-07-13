@@ -210,6 +210,13 @@ public struct VoiceRecorderView: View {
                                 .foregroundColor(.primaryText)
                                 .padding(.horizontal)
                             
+                            Image(systemName: "circle.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .foregroundColor(.red)
+                                .frame(width: 5, height: 5)
+                                .opacity(currentTime % 2 == 0 ? 1 : 0)
+                            
                             Button(action: {}) {
                                 Image(systemName: "lock.circle.fill")
                                     .resizable()
