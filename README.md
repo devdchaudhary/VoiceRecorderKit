@@ -57,7 +57,7 @@ import VoiceRecorderKit
 
 struct ContentView: View {
     
-    @StateObject var recorder = AudioRecorder(numberOfSamples: 15, audioFormatID: kAudioFormatAppleLossless, audioQuality: .max)
+    @StateObject var recorder = AudioRecorder(numberOfSamples: 12, audioFormatID: kAudioFormatAppleLossless, audioQuality: .max)
         
     var body: some View {
         VStack {
