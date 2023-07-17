@@ -62,7 +62,7 @@ public struct VoiceRecorderView: View {
                 
                 Spacer()
                 
-                Text(dragState.width >= 200 || isLocked ? "Slide to the right lock" : "Press and hold to record")
+                Text(dragState.width >= 200 || isLocked ? "Slide right to lock" : "Press and hold to record")
                     .foregroundColor(.primaryText)
                     .font(.system(size: 15))
                 
