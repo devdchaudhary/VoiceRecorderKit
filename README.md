@@ -76,7 +76,12 @@ struct ContentView: View {
             }
             .listStyle(.inset)
             Spacer()
-            VoiceRecorderView(audioRecorder: recorder)
+                        
+            VoiceRecorderView(audioRecorder: recorder) {
+
+            } recordingComplete: {
+
+            }
         }
         .onAppear {
             recorder.fetchRecordings()
