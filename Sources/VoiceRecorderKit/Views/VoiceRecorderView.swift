@@ -23,8 +23,10 @@ public struct VoiceRecorderView: View {
     @State private var isSendingAudio = false
     @State private var isLocked = false
     @State private var dragValue: CGSize?
+    
+    var completionHandler: (() -> Void)?
         
-    public init(isRecording: Bool = false, timer: Timer? = nil, recordingTimer: Timer? = nil, currentTime: Int = 0, holdingTime: Int = 0, isSendingAudio: Bool = false, isLocked: Bool = false, dragValue: CGSize? = nil, audioRecorder: AudioRecorder) {
+    public init(isRecording: Bool = false, timer: Timer? = nil, recordingTimer: Timer? = nil, currentTime: Int = 0, holdingTime: Int = 0, isSendingAudio: Bool = false, isLocked: Bool = false, dragValue: CGSize? = nil, audioRecorder: AudioRecorder, completionHandler: (() -> Void)?) {
         self.isRecording = isRecording
         self.timer = timer
         self.recordingTimer = recordingTimer
@@ -34,6 +36,7 @@ public struct VoiceRecorderView: View {
         self.isLocked = isLocked
         self.dragValue = dragValue
         self.audioRecorder = audioRecorder
+        self.completionHandler = completionHandler
     }
     
     public var body: some View {
@@ -343,6 +346,7 @@ public struct VoiceRecorderView: View {
             
             audioRecorder.recordings.append(newRecording)            
         }
+        completionHandler?()
     }
 }
 
