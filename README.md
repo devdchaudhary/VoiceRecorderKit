@@ -13,10 +13,12 @@ The Player and Recorder View themselves use the
 modifier to get the power input from the voice channel and use those to visualize a waveform of the audio.
 
 Light Mode
-![Simulator Screen Recording - iPhone 14 Pro - 2023-07-13 at 16 02 16](https://github.com/devdchaudhary/VoiceRecorderKit/assets/52855516/acf16441-1db3-4ba2-9bfe-13246d4809c7)
+![Simulator Screen Recording - iPhone 14 Pro - 2023-07-18 at 16 02 12](https://github.com/devdchaudhary/VoiceRecorderKit/assets/52855516/584f64e3-0d0f-4338-a359-e7b68a983481)
+
 
 Supports Dark Mode
-![Simulator Screen Recording - iPhone 14 Pro - 2023-06-16 at 07 08 05](https://github.com/devdchaudhary/VoiceRecorder/assets/52855516/82a9408a-cec8-4559-a366-6608276f890e)
+![Simulator Screen Recording - iPhone 14 Pro - 2023-07-18 at 16 02 57](https://github.com/devdchaudhary/VoiceRecorderKit/assets/52855516/bac6515f-9044-4f52-9d5f-2854f060d10e)
+
 
 Requirements
 
