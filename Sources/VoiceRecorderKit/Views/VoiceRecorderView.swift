@@ -27,9 +27,9 @@ public struct VoiceRecorderView: View {
     var recordingCancelled: (() -> Void)?
     var recordingComplete: (() -> Void)?
     
-    let bgColor: Color? = nil
+    let bgColor: Color?
         
-    public init(isRecording: Bool = false, timer: Timer? = nil, recordingTimer: Timer? = nil, currentTime: Int = 0, holdingTime: Int = 0, isSendingAudio: Bool = false, isLocked: Bool = false, dragValue: CGSize? = nil, audioRecorder: AudioRecorder, recordingCancelled: (() -> Void)?, recordingComplete: (() -> Void)?) {
+    public init(isRecording: Bool = false, timer: Timer? = nil, recordingTimer: Timer? = nil, currentTime: Int = 0, holdingTime: Int = 0, isSendingAudio: Bool = false, isLocked: Bool = false, dragValue: CGSize? = nil, audioRecorder: AudioRecorder, recordingCancelled: (() -> Void)?, recordingComplete: (() -> Void)?, bgColor: Color? = nil) {
         self.isRecording = isRecording
         self.timer = timer
         self.recordingTimer = recordingTimer
@@ -41,6 +41,7 @@ public struct VoiceRecorderView: View {
         self.audioRecorder = audioRecorder
         self.recordingCancelled = recordingCancelled
         self.recordingComplete = recordingComplete
+        self.bgColor = bgColor
     }
     
     public var body: some View {
