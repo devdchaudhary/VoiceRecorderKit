@@ -26,6 +26,8 @@ public struct VoiceRecorderView: View {
     
     var recordingCancelled: (() -> Void)?
     var recordingComplete: (() -> Void)?
+    
+    let bgColor: Color? = nil
         
     public init(isRecording: Bool = false, timer: Timer? = nil, recordingTimer: Timer? = nil, currentTime: Int = 0, holdingTime: Int = 0, isSendingAudio: Bool = false, isLocked: Bool = false, dragValue: CGSize? = nil, audioRecorder: AudioRecorder, recordingCancelled: (() -> Void)?, recordingComplete: (() -> Void)?) {
         self.isRecording = isRecording
@@ -289,7 +291,7 @@ public struct VoiceRecorderView: View {
         }
         .padding(.horizontal)
         .padding(.vertical)
-        .background(Color.backgroundColor.ignoresSafeArea(edges: .bottom))
+        .background(bgColor != nil ? bgColor?.ignoresSafeArea(edges: .bottom) : Color.backgroundColor.ignoresSafeArea(edges: .bottom))
         
     }
     
