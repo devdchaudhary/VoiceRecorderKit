@@ -11,15 +11,15 @@ import AVFoundation
 public final class AudioRecorder: NSObject, ObservableObject {
         
     @Published public var recordings: [Recording] = []
-    @Published var recording = false
-    @Published var soundSamples: [RecordingSampleModel]
+    @Published public var recording = false
+    @Published public var soundSamples: [RecordingSampleModel]
     
     private var currentSample: RecordingSampleModel = .init(sample: .zero)
     private let numberOfSamples: Int
 
     private var timer: Timer?
     
-    var audioRecorder = AVAudioRecorder()
+    public var audioRecorder = AVAudioRecorder()
     
     let audioFormatID: AudioFormatID
     let sampleRateKey: Float
@@ -35,7 +35,7 @@ public final class AudioRecorder: NSObject, ObservableObject {
         self.sampleRateKey = sampleRateKey
     }
     
-    func startRecording() {
+    public func startRecording() {
                 
         do {
             
@@ -69,7 +69,7 @@ public final class AudioRecorder: NSObject, ObservableObject {
         }
     }
     
-    func stopRecording() {
+    public func stopRecording() {
         audioRecorder.stop()
         recording = false
         stopMonitoring()

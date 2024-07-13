@@ -31,7 +31,7 @@ public struct SampleModel: Hashable {
     
 }
 
-struct RecordingSampleModel: Hashable {
+public struct RecordingSampleModel: Hashable {
     
     let id: UUID
     var sample: Int
