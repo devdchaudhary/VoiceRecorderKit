@@ -75,6 +75,20 @@ public final class AudioRecorder: NSObject, ObservableObject {
         stopMonitoring()
     }
     
+    private func saveRecording() {
+        if let tempUrl = UserDefaults.standard.string(forKey: "tempUrl") {
+            if let url = URL(string: tempUrl) {
+                if let data = try? Data(contentsOf: url) {
+                    do {
+                        try data.write(to: url, options: [.atomic, .completeFileProtection])
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+        }
+    }
+    
     public func deleteRecording(url: URL, onSuccess: (() -> Void)?) {
         
         do {
