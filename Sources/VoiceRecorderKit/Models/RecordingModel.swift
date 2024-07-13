@@ -34,7 +34,7 @@ public struct SampleModel: Hashable {
 public struct RecordingSampleModel: Hashable {
     
     let id: UUID
-    var sample: Int
+    public var sample: Int
     
     init(sample: Int) {
         id = UUID()
