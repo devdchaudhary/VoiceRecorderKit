@@ -72,6 +72,7 @@ public final class AudioRecorder: NSObject, ObservableObject {
         audioRecorder.stop()
         recording = false
         stopMonitoring()
+        saveRecording()
     }
     
     private func saveRecording() {
