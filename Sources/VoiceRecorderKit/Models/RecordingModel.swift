@@ -1,6 +1,5 @@
 //
 //  RecordingModel.swift
-//  RecosiaIOS
 //
 //  Created by devdchaudhary on 18/04/23.
 //
